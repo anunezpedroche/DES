@@ -22,22 +22,20 @@
            # y en caso de haberla, la lee y la usa:
            session_start();
           
-            echo "<form action='Ejercicio_11_2.php' method='GET'>"; 
+            echo "<form action='Ejercicio_11_2.php' method='POST'>"; 
             echo "Introduzca un número";
             echo "<input type='text' name='contador'>";
             echo "<input type='submit' name='enviar' value='Enviar'>";
             echo "</form>";  
-            if(!isset($_SESSION["contador"])){
-                $arr = array();
-                array_push($arr,$_GET["contador"]);
-            }
-            $arr= array();
-            array_push($arr,$_GET["contador"]);
-            
-            print_r($arr);
 
-            $_SESSION["contador"]=$_GET["contador"];
-            
+            if(!isset($_POST["enviar"])){
+                $_SESSION['contador'] = "";
+            }else{
+                if($_POST['contador']!= ""){
+                    $_SESSION["contador"] = $_SESSION["contador"]." # ".$_POST['contador'];
+                    echo $_SESSION["contador"];
+                }
+            }
             //echo $_SESSION["contador"]."#";
         
                 
