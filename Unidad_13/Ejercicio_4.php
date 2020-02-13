@@ -3,57 +3,24 @@
     <body>
         <?php
          
-          abstract class Vehiculo
+          interface Vehiculo
           {
-            public $color;
-            public $km;
-            public $combustible;
-           
-            public function __construct($color,$km,$combustible) # Método constructor
-            {
-              //Construimos el objeto padre
-                
-                private $color = 'negro';
-                private $km = 10;
-                private $combustible = 'diesel';
 
-                public function obtenerColor(){
-                    return $this->color;
-                }
+                public function obtenerColor();
 
-                public function obtenerKm(){
-                    return $this->km;
-                }
+                public function obtenerKm();
 
-                public function obtenerCombustible(){
-                    return $this->combustible;
-                }
-                public function ponerColor($col){
-                    $this->color = $col;
-                }
-
-                public function ponerKm($dist){
-                    $this->km = $dist;
-                }
-
-                public function ponerCombustible($comb){
-                    $this->combustible = $comb;
-                }
-            
-              }
+                public function obtenerCombustible();
               
-              //Implementamos métodos
-
-            public function incrementarKm($km) 
-            {
-                $this->km+=$km; 
-            }
           }
 
           class Coche extends Vehiculo
           //Creamos la clase hija y añadimos los métodos
           {
             private $puertas = 0;
+            private $color = 0;
+            private $combustible = 0;
+            private $km = 0;            
 
             public function obtenerPuertas(){
                 return $this->puertas;
@@ -64,6 +31,17 @@
 
             public function incrementarKm($km){
                 $this->km+=$km;
+            }
+            public function ponerColor($col){
+                $this->color = $col;
+            }
+
+            public function ponerKm($dist){
+                $this->km = $dist;
+            }
+
+            public function ponerCombustible($comb){
+                $this->combustible = $comb;
             }
           }
 
@@ -77,6 +55,20 @@
               public function obtenerMaleta(){
                   return $this->maleta;
               }
+              public function ponerColor($col){
+                $this->color = $col;
+            }
+
+            public function ponerKm($dist){
+                $this->km = $dist;
+            }
+
+            public function ponerCombustible($comb){
+                $this->combustible = $comb;
+            }
+            public function incrementarKm($km){
+                $this->km+=$km;
+            }
           }
 
 
